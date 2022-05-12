@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+$main_color: #3c87ff;
+$font_color: #444;
+$light_font_color: #d2d2d2;
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(135deg, #4ab1ff, #2d5cfe);
+}
+
+.box {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40.5rem;
+  padding-top: 2.8rem;
+  padding-bottom: 3rem;
+  border-radius: 7px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.input_block {
+  display: flex;
+  align-items: center;
+  width: 35.5rem;
+  height: 5.2rem;
+  padding: 0 2rem;
+  border: 1px solid #999;
+  border-radius: 7px;
+  &:focus-within {
+    border: 2px solid $main_color;
+    padding: 0 1.9rem;
+  }
+}
+
+.ph-text-align-left {
+  margin-right: 1rem;
+  font-size: 3.2rem;
+  color: $light_font_color;
+  transition: all 0.2s;
+}
+
+.focus {
+  color: $main_color;
+}
+
+.textbox {
+  flex: 1 1 auto;
+  height: 100%;
+  font-size: 1.9rem;
+  background: none;
+  border: none;
+  color: $font_color;
+  &:focus-visible {
+    outline: none;
+  }
+  &::placeholder {
+    color: $light_font_color;
+  }
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.8rem 2.5rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.task_tag {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.tag {
+  font-size: 1.8rem;
+  color: $font_color;
+  cursor: pointer;
+}
+
+.active {
+  color: #3c87ff;
+}
+
+.clear {
+  height: 3.4rem;
+  padding: 0.7rem 1.3rem;
+  font-size: 1.3rem;
+  letter-spacing: 0.3px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #1798fb 0%, #2d5cfe 100%);
+  opacity: 0.6;
+  transition: all 0.2s;
+}
+
+.task_list {
+  display: flex;
+  flex-direction: column;
+  width: 39.5rem;
+  max-height: 31.5rem;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  padding: 1rem 1.5rem 1.5rem 2.5rem;
+  font-size: 1.8rem;
+  &::-webkit-scrollbar {
+    width: 5px;
+    &-button {
+      height: 5px;
+      background: transparent;
+    }
+    &-track-piece {
+      background: #eee;
+      border-radius: 9999px;
+    }
+    &-thumb {
+      background: #e5e5e5;
+      border-radius: 9999px;
+      &:hover {
+        background: #ddd;
+      }
+    }
+  }
+}
+
+.overflow {
+  overflow-y: auto;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.8rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid #ccc;
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  label {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  &[data-status="completed"] {
+    color: $light_font_color;
+    & .task_content {
+      text-decoration: line-through;
+    }
+  }
+}
+
+.task_content {
+  width: 28rem;
+  overflow-wrap: break-word;
+}
+
+.more {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.ph-dots-three-outline-fill {
+  font-size: 1.7rem;
+  color: $font_color;
+  cursor: pointer;
+}
+
+.task_menu {
+  position: absolute;
+  top: 0px;
+  right: 0;
+  z-index: 3;
+  width: 10.5rem;
+  padding: 5px 0;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  transform: scale(0);
+  transition: all 0.2s;
+}
+
+.show {
+  transform: scale(1);
+}
+
+.task:last-child .task_menu {
+  top: unset;
+  bottom: 0px;
+}
+
+.task:only-child .task_menu {
+  bottom: unset;
+  top: 0px;
+}
+
+.edit,
+.delete {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.7rem;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  &:hover {
+    background-color: #f5f5f5;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

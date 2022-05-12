@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="box">
+      <label class="input_block">
+        <i class="ph-text-align-left"></i>
+        <input type="text" class="textbox" placeholder="Add a new task" />
+      </label>
+      <div class="controls">
+        <ul class="task_tag">
+          <li class="tag active">All</li>
+          <li class="tag">Pending</li>
+          <li class="tag">Completed</li>
+        </ul>
+        <button class="btn clear">Clear All</button>
+      </div>
+      <ul class="task_list">
+        <span>You don't have any task here</span>
+      </ul>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
